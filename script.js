@@ -7,53 +7,49 @@ let quotes = [
   `It don't matter if you win by an inch or a mile. Winning's winning.`,
 ];
 
-window.onload =  function(event) {
-  
+window.onload = function (event) {
   // Random quote of the day generator
-  const randomQuote = function() {
-    document.querySelector('#quote-of-the-day').textContent = `"${
+  const randomQuote = function () {
+    document.querySelector("#quote-of-the-day").textContent = `"${
       quotes[Math.floor(Math.random() * quotes.length)]
     }"`;
   };
   randomQuote();
 
   // Do all of your work inside the window.onload function (in other words, here!)
-  
+
   // Part 1
-  document.getElementById('main-title').innerText = 'DOM Toretto';
+  document.querySelector("#main-title").textContent =
+    "Welcome to Dom's homepage";
   // Part 2
-  document.body.style.backgroundColor = '#85a651';
+  document.body.style.backgroundColor = "grey";
   // Part 3
-  const favThings = document.querySelectorAll('#favorite-things li')
-  favThings[favThings.length - 1].remove()
+  const list = document.getElementById("favorite-things");
+  list.removeChild(list.lastElementChild);
   // Part 4
-  const specTitle = document.querySelectorAll('.special-title')
-  specTitle.forEach(element => {
-    element.style.fontSize = '2rem'
-  }) 
-
+  const specialTitle = document.querySelectorAll(".special-title");
+  specialTitle.forEach((element) => {
+    element.style.fontSize = "2rem";
+  });
   // Part 5
-  const pastRaces = document.querySelectorAll('#past-races li')
+  const pastRaces = document.querySelectorAll("#past-races li");
   pastRaces.forEach((element) => {
-    if (element.innerText === 'Chicago'){
-      element.remove()
+    if (element.innerText === "Chicago") {
+      element.remove();
     }
-  })
+  });
   // Part 6
-  const houston = document.createElement('li')
-  houston.innerText = 'Houston'
-  document.getElementById('past-races').appendChild(houston)
+  const e = document.createElement("li");
+  e.innerText = "New York";
+  document.getElementById("past-races").appendChild(e);
   // Part 7
-  const divHouston = document.createElement('div')
-  divHouston.classList.add('blog-post' , 'purple')
-  
-
-  const h1Houston = document.createElement('h1')
-  h1Houston.innerHTML = 'Houston'
-  const pHouston = document.createElement('p')
-  pHouston.innerText = "I JUST RACE FOR FUN"
-  divHouston.appendChild(h1Houston)
-  divHouston.appendChild(pHouston)
-  document.querySelector('.main').appendChild(divHouston)
-  
-}
+  const divNewYork = document.createElement("div");
+  divNewYork.classList.add("blog-post", "purple");
+  const h1NewYork = document.createElement("h1");
+  h1NewYork.innerHTML = "New York";
+  const pNewYork = document.createElement("p");
+  pNewYork.innerText = "I RACED FOR MY FAMILY AND WON THEIR LOVE FOR ME";
+  divNewYork.appendChild(h1NewYork);
+  divNewYork.appendChild(pNewYork);
+  document.querySelector(".main").appendChild(divNewYork);
+};
